@@ -3,7 +3,6 @@ layout: post
 title:  "Gradle rules - Things I have learned from dfuntest"
 date:   2014-12-07 12:00:00
 tags: gradle dfuntest java
-category: computer science
 ---
 I believe that work should be as automated as possible. Although there are
 already many existing tools for all kinds of tasks in programmer's daily life:

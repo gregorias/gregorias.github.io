@@ -4,7 +4,6 @@ title:  "Profiling Haskell - fixing time and space leaks"
 date:   2015-02-21 16:00:00
 uses_mathjax: true
 tags: haskell pentago programming technical
-category: computer science
 ---
 In [the previous post]({% post_url 2014-12-28-creating-ai-in-haskell %}) I have
 explained the rationale behind my Pentago game implementation.  Here I will show

@@ -4,7 +4,6 @@ title:  "PixeloSolver - About the composability of Haskell monads"
 date:   2015-04-02 22:00:00
 uses_mathjax: true
 tags: pixelosolver programming haskell
-category: computer science
 ---
 
 # PixeloSolver - An exercise in computer vision in Haskell

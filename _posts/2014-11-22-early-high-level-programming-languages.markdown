@@ -4,7 +4,6 @@ title:  "Early high-level programming languages"
 date:   2014-11-22 22:00:00
 uses_mathjax: true
 tags: blog programming history
-category: computer science
 ---
 This post will summarise history of the early programming languages as written
 in Knuth's article "The early development of programming languages". Most of the

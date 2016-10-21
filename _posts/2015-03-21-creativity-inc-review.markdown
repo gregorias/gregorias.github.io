@@ -3,7 +3,6 @@ layout: post
 title:  "Creativity Inc's review"
 date:   2015-03-21 20:00:00
 tags: blog review
-category: non-technical
 ---
 <figure style="float: left">
 <img src="/images/2015/03/creativity.jpg" alt="Creativity Inc" />

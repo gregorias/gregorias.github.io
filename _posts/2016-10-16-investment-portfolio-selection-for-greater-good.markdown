@@ -3,7 +3,6 @@ layout: post
 title:  "Investment portfolio selection for greater good"
 tags: mathematics investing technical
 uses_mathjax: True
-category: blog
 ---
 Choosing a portfolio is a daunting task for beginning, amateur investors.
 It's difficult to translate rudimentary knowledge and well-meaning, but general

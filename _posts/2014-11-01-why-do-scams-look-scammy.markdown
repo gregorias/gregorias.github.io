@@ -4,7 +4,6 @@ title:  "Why do scam e-mails look scammy?"
 date:   2014-11-01 16:00:00
 uses_mathjax: true
 tags: mathematics technical
-category: mathematics
 ---
 While perusing HN I noticed an article from Microsoft researcher Cormac Herley
 [Why do Nigerian Scammers Say They are from Nigeria?][whyfromnigeria] . It's

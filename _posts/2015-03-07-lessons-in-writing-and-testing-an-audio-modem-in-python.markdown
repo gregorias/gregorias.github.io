@@ -4,7 +4,6 @@ title:  "Lessons in writing and testing an audio modem in Python"
 date:   2015-03-07 16:00:00
 uses_mathjax: true
 tags: blog cython python programming fft dsp
-category: computer science
 ---
 In one of my current prototype projects I need to encode voice into binary data
 and then later transfer it through a voice channel. This forced me to push my

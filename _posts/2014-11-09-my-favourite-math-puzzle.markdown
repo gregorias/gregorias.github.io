@@ -4,7 +4,6 @@ title: "My favourite math puzzle - why hope is important"
 date:  2014-11-09 16:00
 uses_mathjax: true
 tags: mathematics puzzle probability
-category: mathematics
 ---
 Here I will present one of my favourite math puzzles. It holds this rank due to
 the seeming impossibility of the task it asks.

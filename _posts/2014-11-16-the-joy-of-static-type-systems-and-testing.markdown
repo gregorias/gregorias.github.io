@@ -3,7 +3,6 @@ layout: post
 title: "The joy of static type systems and testing"
 date:  2014-11-16 19:00
 tags: programming software development
-category: computer science
 ---
 I love programming, for one it's an extremely practical tool allowing me to
 harness the ever growing power of automatic computation and control (though,
