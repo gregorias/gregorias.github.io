@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Predicting death on Titanic"
-date: 2018-04-24
+title:  "Who would survive the Titanic?"
+date: 2018-05-06
 ---
 
 
@@ -9,9 +9,9 @@ date: 2018-04-24
 <img src="/images/2018/1280px-RMS_Titanic_3.jpg" alt="Titanic" />
 </figure>
 
-In this post I will dive into Titanic data; there's [a practice exercise on
-Kaggle][titanic-kaggle] that gives Titanic passenger data and asks us to find
-the best predictor of survival.
+There's [a practice exercise on Kaggle][titanic-kaggle] that gives Titanic
+passenger data and asks us to find the best predictor of survival.
+The exercise seems exciting, so, in this post, I will dive into Titanic data.
 
 I will first present relationships between passengers' attributes and their
 survival rate. Then, I'll attempt to create a model for predicting survival.
@@ -19,8 +19,8 @@ We'll see what information matters and what doesn't.
 
 ## Data available
 
-Kaggle gives us data on a random sample of 2344 passengers: their class, age,
-family relationships, lodging, and trip information.
+Kaggle gives data on a random sample of 2344 passengers: their class, age,
+family relationships, lodging, and general trip information.
 
 <figure>
 <img src="/images/2018/Screenshot-2018-4-24%20A%20foray%20into%20Titanic%20data.png"
@@ -28,7 +28,8 @@ family relationships, lodging, and trip information.
 <figcaption>Input data</figcaption>
 </figure>
 
-The general survival &ndash; the most important metric &ndash; rate was 38.4%.
+The general survival rate &ndash; the most important metric &ndash; rate was
+38.4%.
 
 <figure>
 <img src="/images/2018/surv_death_rate.png"
@@ -49,14 +50,14 @@ Let's see how important each attribute is on its own.
 <figcaption>Distribution of ages among survivors and victims</figcaption>
 </figure>
 
-Note that we around 20% of entries did not have the age attribute.
+Note that around 20% of entries did not have the age attribute.
 
 ### Gender
 
 <figure>
 <img src="/images/2018/sex_surv.png"
      alt="Gender distribution among survivors and victims" />
-<figcaption>Survivability with respect to gender</figcaption>
+<figcaption>Survival rate with respect to gender</figcaption>
 </figure>
 
 ### Wealth
@@ -64,7 +65,7 @@ Note that we around 20% of entries did not have the age attribute.
 <figure>
 <img src="/images/2018/class_surv.png"
      alt="Class distribution among survivors and victims" />
-<figcaption>Survivability with respect to class</figcaption>
+<figcaption>Survival rate with respect to class</figcaption>
 </figure>
 
 ### Lodging
@@ -75,7 +76,7 @@ deck.
 <figure>
 <img src="/images/2018/deck_surv.png"
      alt="Distribution of ages among survivors and victims" />
-<figcaption>Survivability with respect to the cabin's deck</figcaption>
+<figcaption>Survival rate with respect to the cabin's deck</figcaption>
 </figure>
 
 Only 22.9% of passengers have cabin data in the sample, which explains why this
@@ -100,7 +101,7 @@ survival rate was 38%; even a classifier that always gives "Death" verdict would
 have 62% accuracy.
 
 From the initial survey, it looks the gender is the best indicator of survival,
-and indeed a tree that just splits based on gender has 79% of estimated
+and, indeed, a tree that just splits based on gender has 79% of estimated
 accuracy.
 
 <figure>
@@ -119,9 +120,9 @@ have trained:
 <figcaption>One of the best decision trees.</figcaption>
 </figure>
 
-The tree would predict that men with a cabin number that are less than 36 years
-old would survive, and women in the third class who embarked from Southampton
-would die.
+The tree would predict that men with a cabin number and that are less than 36
+years old would survive. According to the model, Women in the third class who
+embarked from Southampton would die.
 
 I've also tried using more complicated models. A gradient boosted decision tree
 would get even 85% accuracy when measured using
@@ -135,9 +136,9 @@ would get even 85% accuracy when measured using
 
 ## Verification with test data
 
-I submitted results from all 4 models and a surprising thing happened. The
-gradient boosted model performed worse than the gender-based tree. The
-likely explanation here is that I've been creating overfitted models.
+I submitted results from all four models, and a surprising thing happened. The
+gradient boosted model performed worse than the gender-based tree. The likely
+explanation here is that I've been creating overfitted models.
 
 <figure>
 <img src="/images/2018/test_accs.png"
@@ -145,6 +146,12 @@ likely explanation here is that I've been creating overfitted models.
 <figcaption>Comparison of test accuracy of all models</figcaption>
 </figure>
 
+## Source
+
+The Jupyter notebook I used for this analysis is available on
+[Kaggle][notebook].
+
 [titanic-kaggle]: https://www.kaggle.com/c/titanic/kernels?sortBy=date&group=upvoted&pageSize=20&competitionId=3136
 [cross-validation]: https://en.wikipedia.org/wiki/Cross-validation_(statistics)
 [rf_importance]: http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html
+[notebook]: https://www.kaggle.com/gregorias/titanic-data-analysis
