@@ -26,5 +26,3 @@ github_username:  gregorias
 markdown: kramdown
 
 safe: true
-
-theme: jekyll-theme-hacker
