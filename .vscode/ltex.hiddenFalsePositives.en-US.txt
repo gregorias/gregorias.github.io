@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q{% include figure.html src=\"/images/2022/meine-einkaeufe.webp\" alt=\"a picture of the digital receipt service website and an example receipt\" caption=\"the digital receipt service and a receipt\" %}\\E$"}
