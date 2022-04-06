@@ -1,3 +1,4 @@
+.direnv
 vendor
 _site
 .sass-cache

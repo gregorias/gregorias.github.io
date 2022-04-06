@@ -2,3 +2,5 @@ IDOR
 Supercard
 supercard
 Rappen
+rbenv
+direnv
