@@ -26,3 +26,21 @@ The blog is hosted on GitHub Pages at
     gem install bundler
     bundler install
     ```
+
+### Testing
+
+To preview your drafts, run
+
+```shell
+jekyll serve --drafts
+```
+
+This will run a local server instance with live updates.
+
+### Build
+
+To build the static website before release, run
+
+```shell
+jekyll build
+```
