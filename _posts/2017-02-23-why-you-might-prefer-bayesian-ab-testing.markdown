@@ -219,7 +219,7 @@ Also, I heartily recommend using Bayesian methods in your experiments, quite oft
 
 [wagenmaker_conf]: http://www.ejwagenmakers.com/inpress/HoekstraEtAlPBR.pdf
 
-[^best]: A quick search for "best test" or "best estimator" on [stats.stackexchange.com](stats.stackexchange.com) or [reddit.com](https://reddit.com) reveals many entries. Strictly speaking, there is no such thing as "the best test" or "the correct test" in statistics, since any test and any test evaluation rely on some assumptions.  "Understanding Statistics and Statistical Myths" explains this point more thoroughly in the third myth: "[The formula] is the Correct Formula for Sample Standard Deviation.".
+[^best]: A quick search for "best test" or "best estimator" on [stats.stackexchange.com](https://stats.stackexchange.com) or [reddit.com](https://reddit.com) reveals many entries. Strictly speaking, there is no such thing as "the best test" or "the correct test" in statistics, since any test and any test evaluation rely on some assumptions.  "Understanding Statistics and Statistical Myths" explains this point more thoroughly in the third myth: "[The formula] is the Correct Formula for Sample Standard Deviation.".
 [^model_useful]: Although models are often criticized for not being accurate representations of reality, I would argue that models should be first and foremost useful. Being useful is very much related to being accurate but they are not the same. "All models are wrong but some are useful".
 [^most_winning]: ["Most winning AB test results are illusory"](http://www.qubit.com/sites/default/files/pdf/mostwinningabtestresultsareillusory_0.pdf) discusses other commonly occuring mistakes done in A/B testing.
 
