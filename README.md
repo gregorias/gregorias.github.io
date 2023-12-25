@@ -23,7 +23,7 @@ The blog is hosted on GitHub Pages at
 
     ```bash
     rbenv install
-    gem install bundler -v 2.4.22
+    gem install bundler
     bundler install
     ```
 
