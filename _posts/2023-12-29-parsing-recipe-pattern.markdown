@@ -172,7 +172,7 @@ The sketch above shows the essence of the recipe pattern:
   field parsers.
 - We have the process of **cooking**. Cooking translates a **recipe** into the
   desired parser of a record. What makes the **cooking** process special is
-  that it may take into account row parsing details, e.g., that fields need to
+  that it takes into account row parsing details, e.g., that fields need to
   be separated by a comma (e.g., for CSV cooking) or that records need to be
   surrounded by braces (for JSON parser cooking).
 
