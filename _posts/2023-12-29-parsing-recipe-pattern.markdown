@@ -295,6 +295,9 @@ bsequence' :: (Applicative e, TraversableB b) => b e -> e (b Identity)
 The difference lies in `GCsvCookable` which a parsing-specific alternative for
 `TraversableB`. which is adjusted specially for parsing.
 
+Barbies also has an ingenious naming approach, which helps working with the
+library. It inspired me to do the same for the recipe pattern.
+
 ### Blog Posts
 
 [„Higher Kinded Option Parsing” by Chris
