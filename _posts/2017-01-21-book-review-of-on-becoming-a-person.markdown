@@ -31,6 +31,6 @@ It is instead the fact that we act in discord with oneself that is oft the sourc
 Therefore a question the psychotherapy should facilitate answering is "Who am I"?
 In the process of this personality change, which is, more or less, about maturing, the locus of control is moved from the external ("What is expected of me") to internal ("What do I want"). The person grows more aware and accepting of himself, tends to view his own emotions as something truly his and not as an external phenomena.
 
-The book makes many more elaborate point on this and various other topics, like implications and applications of his theories in ordinary life, how the approach would facilitate a more effective and constructive communication between individual (on that subject many points are common with [Nonviolent communication](http://goo.gl/Q7Ovcu)), how does it relate to behaviorism, and author's unusual opinions on teaching.
+The book makes many more elaborate point on this and various other topics, like implications and applications of his theories in ordinary life, how the approach would facilitate a more effective and constructive communication between individual (on that subject many points are common with [Nonviolent communication](https://goo.gl/Q7Ovcu)), how does it relate to behaviorism, and author's unusual opinions on teaching.
 
 It is a classic with many favorable reviews on Amazon. To many it offers a respite from more world-weariness and gives useful ideas for the process of self-improvement.
