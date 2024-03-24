@@ -109,17 +109,13 @@ The measure of unexpectedness is called **p-value**.
 It is the probability that our null hypothesis would produce the observed or more extreme value.
 In other words, the lower the p-value, the stronger the suprise.
 
-<figure>
-<img src="/images/2017/p_value.png" alt="A diagram explaing the concept of a p-value." />
-</figure>
+![A diagram explaing the concept of a p-value.](/images/2017/p_value.png)
 
 Same calculations may be used to compute a related concept - **confidence interval** of $$\hat{\theta}$$.
 Confidence interval is an interval that intuitively approximates the likely range in which the parameter $$\theta$$ really lies.
 In our example, the interval would be $$\hat{\theta} \pm 1.96 \hat{\sigma}$$, because $$\hat{\theta}$$ is normally distributed.
 
-<figure>
-<img src="/images/2017/normal_196.png" alt="A plot of a normal distribution with 95% confidence interval." />
-</figure>
+![A plot of a normal distribution with 95% confidence interval.](/images/2017/normal_196.png)
 
 A correct intepretation of a confidence interval is not that simple:
 
@@ -177,7 +173,9 @@ First we have to agree on a prior.
 Usually, we don't know much, so we might as well assign uniform probability distribution to $$\theta_A, \theta_B$$.
 By applying the Bayes rule to experimental data, which consists of numbers of successes and attempts in each variant, we'll get the posterior probability distribution of variants' parameters.
 In our case the posterior probability distribution is conveniently expressible by a [Beta distribution](https://en.wikipedia.org/wiki/Beta_distribution).
-If you'd like to understand what happens under the hood, then I reccommend an excellent introductory series ["using baseball statistics"](https://varianceexplained.org/r/empirical_bayes_baseball/).
+If you'd like to understand what happens under the hood, then I recommend an
+excellent introductory series “Understanding empirical Bayes estimation (using
+baseball statistics)”.
 
 With the probability distribution we can do all kinds of stuff we couldn't do with frequentist methodology.
 Like plot its density:
@@ -212,10 +210,8 @@ At any given time we only have probability estimates of the expected payoff, and
 Experiments need to continuously balance exploration (choosing alternative variants in order to learn more about payoffs) and exploitation (choosing the variant we believe to be the best) in order to minimize the expected loss - patient is assigned the worse treatment.
 
 Experiments using this approach are called [Multi-armed bandit experiments](https://en.wikipedia.org/wiki/Multi-armed_bandit)[^wiki_quote].
-The multi-armed bandit problem generalizes the outlined approach to multiple variants with unknown payoff.
-
-[Google Analytics uses multi-armed bandit as their experiment framework](https://support.google.com/analytics/answer/2844870?hl=en).
-Their [FAQ](https://support.google.com/analytics/answer/2847021?hl=en) does a good job of explaining the reasons why a Google analytics customer might prefer this method to a classical approach.
+The multi-armed bandit problem generalizes the outlined approach to multiple
+variants with unknown payoff.
 
 ## Summary
 
@@ -236,7 +232,7 @@ Also, I heartily recommend using Bayesian methods in your experiments, quite oft
 
 [gelmanblog]: https://andrewgelman.com
 
-[fharrell_contradiction]: https://www.fharrell.com/2017/01/null-hypothesis-significance-testing.html
+[fharrell_contradiction]: https://www.fharrell.com/post/nhst-never/index.html
 
 [wagenmaker_conf]: https://www.ejwagenmakers.com/inpress/HoekstraEtAlPBR.pdf
 

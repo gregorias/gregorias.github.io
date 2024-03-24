@@ -433,4 +433,4 @@ easily.
 [minmax]: https://en.wikipedia.org/wiki/Minimax
 [github]: https://github.com/gregorias/Pentago
 [outoftarpit]: https://github.com/papers-we-love/papers-we-love/blob/master/design/out-of-the-tar-pit.pdf?raw=true
-[whymatters]: https://github.com/papers-we-love/papers-we-love/blob/master/functional_programming/why-functional-programming-matters.pdf
+[whymatters]: https://github.com/papers-we-love/papers-we-love/blob/main/languages-paradigms/functional_programming/why-functional-programming-matters.pdf

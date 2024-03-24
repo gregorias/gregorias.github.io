@@ -5,9 +5,18 @@ date:   2023-03-25 11:00:00
 tags: neovim plenary coroutine
 ---
 
-[Neovim Plenary](https://github.com/nvim-lua/plenary.nvim)'s [`async.run`](https://github.com/nvim-lua/plenary.nvim/blob/253d34830709d690f013daf2853a9d21ad7accab/lua/plenary/async/async.lua#L104) seems to be doing an impossible trick. It starts a concurrent computation that runs even after the main script has finished and calls the provided callback once it's done. It seemed impossible to me, because Lua uses [non-preemptive coroutines](https://www.lua.org/pil/9.4.html). The caller needs to orchestrate when its coroutines can resume. So when the main script is done, there should be nothing that can resume remaining coroutines.
+[Neovim Plenary](https://github.com/nvim-lua/plenary.nvim)’s
+[`async.run`](https://github.com/nvim-lua/plenary.nvim/blob/253d34830709d690f013daf2853a9d21ad7accab/lua/plenary/async/async.lua#L104)
+seems to be doing an impossible trick. It starts a concurrent computation that
+runs even after the main script has finished and calls the provided callback
+once it's done. It seemed impossible to me, because Lua uses
+[non-preemptive coroutines](https://www.lua.org/pil/9.4.html).
+The caller needs to orchestrate when its coroutines can resume. So when the
+main script is done, there should be nothing that can resume remaining
+coroutines.
 
-This note is my investigation into why this is happening. Surprise is important for learning.
+This note is my investigation into why this is happening. Surprise is important
+for learning.
 
 ## Testing
 

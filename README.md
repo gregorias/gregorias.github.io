@@ -12,6 +12,12 @@ The blog is hosted on GitHub Pages at
 
 1. Install [rbenv](https://github.com/rbenv/rbenv) and
    [direnv](https://direnv.net/) and hook them into your shell.
+1. Install Lefthook.
+
+   ```bash
+   lefthook install
+   ```
+
 1. Allow `.envrc`.
 
    ```bash

@@ -14,8 +14,8 @@ then I will describe how to combine Cython and profiling to build a flexible and
 efficient Python application. In the last section I will talk about pulseaudio
 and how it allows me to perform user testing without using an external device.
 
-Modulation and demodulation
-===========================
+## Modulation and demodulation
+
 The module that I am building encodes and decodes voice. The encoder has one
 input: a continuous stream of voice represented by audio samples. On the output
 it plays audio that is transmitted by an independent voice communicator. The
@@ -30,8 +30,8 @@ producing a seemingly random bytestring. This task includes a few challenges:
   voice so that it fits?
 * How can I efficiently demodulate the modulated signal?
 
-Basics of audio signals
------------------------
+### Basics of audio signals
+
 The sound that we hear is a result of a mechanical wave of pressure and
 displacement propagating through air. As such we can represent any sound as a
 wave. Wave being a continuous signal needs to be discretized to be representable
@@ -71,8 +71,8 @@ to the other. From fundamental frequencies we can produce sampling by simply
 calculating wave values at given points. To get the other way around we need to
 use the discrete Fourier transform.
 
-Discrete Fourier transform
---------------------------
+### Discrete Fourier transform
+
 Fourier transform is a general mathematical tool which transform a wave function
 into a function of fundamental frequencies. That is the resulting function maps
 each of its argument to its power inside the argument. The discrete version of
@@ -107,8 +107,7 @@ have twice that sampling rate. Since telephony was meant to transmit voice and
 human voice happens in a range up to 300Hz then 8000 sampling rate was more than
 enough.
 
-Modulating data
----------------
+### Modulating data
 
 We know enough to understand important trade-offs of signal modulation. Our task
 now is to encode binary data into a voice channel in such a way that the
@@ -138,8 +137,7 @@ before, but resigned due to lack of some libraries I would find useful. Now
 after overcoming my reluctance to FFI I would simply write such a wrapper for
 Haskell. End of diversion.
 
-Demodulation
-------------
+### Demodulation
 
 So far I have described how the voice is encoded into binary data and how then
 this data is modulated. We are now left with possibly the most difficult part of
@@ -260,8 +258,7 @@ voice demodulation. In the next section I will explain how Cython works and how
 it can greatly improve speed of Python for low cost of just some static type
 annotations.
 
-Cython
-======
+## Cython
 
 Profiling
 ---------
@@ -505,4 +502,4 @@ streams so that multiple inputs can be mixed.
 [hermes]: https://cs.nyu.edu/~jchen/publications/com31a-dhananjay.pdf
 [codec2]: https://www.rowetel.com/blog/?page_id=452
 [pycodec2]: https://github.com/gregorias/pycodec2
-[py3vsC]: https://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=python3&lang2=gcc
+[py3vsC]: https://archive.ph/Dk5Uq
