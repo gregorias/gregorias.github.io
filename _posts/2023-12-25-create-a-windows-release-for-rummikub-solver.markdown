@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Creating a Windows release of Rummikub Solver"
+title:  "Creating a Windows Release of Rummikub Solver"
 date:   2023-12-25 14:00:00
 tags: rummikub-solver ghcup windows msys2
 ---
-This note is about my complete setup to build [Rummikub Solver][rummikubsolver]
-on Windows for Windows.
+This note is about my complete setup for building
+[Rummikub Solver][rummikubsolver] on Windows for Windows.
 
 Rummikub Solver is a Haskell application that depends on external C libraries.
 As a Unix-native, I found it challenging to figure out a proper way to work
@@ -19,12 +19,13 @@ a portable executable package without smelling too much.
 
 ## Instructions
 
-Install [GHCup][ghcup]. Bundled with GHCup is also an installation of [[MSYS2]].
-It installs Msys in `C:\ghcup\msys64`.  
-Open up a unix-like terminal `C:\ghcup\msys64\msys2.exe`.
+Install [GHCup][ghcup]. Bundled with GHCup is also an installation of
+[MSYS2][msys2].
+It installs Msys2 in `C:\ghcup\msys64`.  
+Open up a Unix-like terminal `C:\ghcup\msys64\msys2.exe`.
 You'll use the terminal to do the rest of the work.  
-Refresh Msys' package manager cache and install dev tools and Rummikub Solver's
-dependencies:
+Refresh Msys2’s package manager cache and install dev tools and Rummikub
+Solver’s dependencies:
 
 ```bash
 pacman -Sy
@@ -67,7 +68,7 @@ zip -r rummikubsolver-win64.zip \
   /mingw64/libwinpthread-1.dll
 ```
 
-Voila. You can now upload the zip archive for users to download and use.
+Voilà. You can now upload the zip archive for users to download and use.
 
 [ghcup]: https://www.haskell.org/ghcup/
 [rummikubsolver]: https://github.com/gregorias/rummikubsolver/
