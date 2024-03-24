@@ -7,7 +7,7 @@ tags: haskell parsing
 This note introduces **the parsing recipe pattern**. This Haskell parsing
 pattern addresses the newtype proliferation problem that arises with
 typeclass-based generic parsers like Cassava or Aeson. At the same time, the
-recipe pattern keeps the ergonomy of auto-deriving parsers.  
+recipe pattern keeps the ergonomy of auto-deriving parsers.
 It’s a pattern I haven’t seen yet anywhere else as of December 2023 , and I
 think it could be a good addition to Haskell’s parsing ecosystem.
 
@@ -178,10 +178,10 @@ The sketch above shows the essence of the recipe pattern:
 
 Within this scheme, the only thing a programmer needs to do is define the
 higher-kinded type of their record and provide a parsing recipe. `cook` will be
-a generic function. It's implemented it once per file format.  
+a generic function. It's implemented it once per file format.
 There’s some higher-kinded type related boilerplate that can be further
-eliminated by [Barbies][barbies]. I didn’t do it in this post to keep the number of
-concepts manageable.
+eliminated by [Barbies][barbies]. I didn’t do it in this post to keep the
+number of concepts manageable.
 
 ### Kitchen
 
@@ -300,7 +300,7 @@ library. It inspired me to do the same for the recipe pattern.
 
 ### Blog Posts
 
-[„Higher Kinded Option Parsing” by Chris
+[“Higher Kinded Option Parsing” by Chris
 Penner](https://chrispenner.ca/posts/hkd-options) shows the use of HKTs to
 extract data from an environment, to combine with defaults, and then have a
 pure option type to work with. All of these operations are relevant to recipes
