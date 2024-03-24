@@ -116,5 +116,5 @@ The Jupyter notebook I used for this analysis is available on
 
 [titanic-kaggle]: https://www.kaggle.com/c/titanic/kernels?sortBy=date&group=upvoted&pageSize=20&competitionId=3136
 [cross-validation]: https://en.wikipedia.org/wiki/Cross-validation_(statistics)
-[rf_importance]: http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html
+[rf_importance]: https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html
 [notebook]: https://www.kaggle.com/gregorias/titanic-data-analysis
