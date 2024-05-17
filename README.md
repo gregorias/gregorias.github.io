@@ -49,3 +49,17 @@ To build the static website before release, run
 ```shell
 jekyll build
 ```
+
+### Updating dependencies
+
+To update the used Ruby version:
+
+1. Update `.ruby-version`.
+2. Update `.github/workflows/jekyll-build-and-deploy.yml`.
+3. Clean currently generated files and regenerate them:
+
+    ```bash
+    git clean -xdf
+    bundler install
+    just build
+    ```
