@@ -63,3 +63,6 @@ To update the used Ruby version:
     bundler install
     just build
     ```
+
+To update the used Bundler, delete the lockfile and regenerate with
+`bundler install`.
