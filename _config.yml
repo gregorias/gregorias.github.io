@@ -41,12 +41,6 @@ google_site_verification: # fill in to your verification string
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
-google_analytics:
-  id: # fill in your Google Analytics ID
-
-goatcounter:
-  id: # fill in your Goatcounter ID
-
 # Prefer color scheme setting.
 #
 # Note: Keep empty will follow the system prefer color by default,
@@ -65,7 +59,7 @@ theme_mode: # [light | dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn:
+cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: images/doggo.jpg
@@ -78,7 +72,7 @@ social_preview_image: # string, local or CORS resources
 toc: true
 
 comments:
-  active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
+  provider: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
   # The active options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname

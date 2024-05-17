@@ -224,13 +224,14 @@ Also, I heartily recommend using Bayesian methods in your experiments, quite oft
 
 [Obama]: https://blog.optimizely.com/2010/11/29/how-obama-raised-60-million-by-running-a-simple-experiment/
 
-[ASA]: https://amstat.tandfonline.com/doi/abs/10.1080/00031305.2016.1154108
+<!-- The ASA’s Statement on p-Values: Context, Process, and Purpose -->
+[ASA]: https://archive.ph/aP8fP
 
 [repcri]: https://en.wikipedia.org/wiki/Replication_crisis
 
 [greenlandetal]: https://link.springer.com/article/10.1007/s10654-016-0149-3
 
-[gelmanblog]: https://andrewgelman.com
+[gelmanblog]: https://statmodeling.stat.columbia.edu/
 
 [fharrell_contradiction]: https://www.fharrell.com/post/nhst-never/index.html
 
@@ -243,4 +244,4 @@ Also, I heartily recommend using Bayesian methods in your experiments, quite oft
 [^wiki_quote]: Funny quote from the article: "Originally considered by Allied scientists in World War II, it [the problem] proved so intractable that, according to Peter Whittle, the problem was proposed to be dropped over Germany so that German scientists could also waste their time on it.".
 
 [^hat]: The hat symbol means that given value is an estimate based on a sample. A symbol without a hat is meant to represent a parameter, the true value for the population.
-[^subjectivity]: You can sometimes hear an argument that Bayesian prior makes statistics subjective with the hidden assumption that subjectivity is bad. I don't think that the argument or even the hidden assumption are valid. Both approaches are subjective. While frequentism doesn't offer the degree of freedom in the form of a prior, it makes up for it in other aspects like choice of what constitutes unseen data. [This post](https://andrewgelman.com/2016/12/13/bayesian-statistics-whats/) and the post it links to talk a bit more about it. [This Wagenmakers' paper](https://www.ejwagenmakers.com/2007/pValueProblems.pdf) is an excellent, more in-depth resource to learn more about this issue as well as other matters connected to bayesian-frequentist debate.
+[^subjectivity]: You can sometimes hear an argument that Bayesian prior makes statistics subjective with the hidden assumption that subjectivity is bad. I don't think that the argument or even the hidden assumption are valid. Both approaches are subjective. While frequentism doesn't offer the degree of freedom in the form of a prior, it makes up for it in other aspects like choice of what constitutes unseen data. [This post](https://archive.ph/94qQo) and the post it links to talk a bit more about it. [This Wagenmakers' paper](https://www.ejwagenmakers.com/2007/pValueProblems.pdf) is an excellent, more in-depth resource to learn more about this issue as well as other matters connected to bayesian-frequentist debate.
