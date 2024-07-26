@@ -52,6 +52,8 @@ jekyll build
 
 ### Updating dependencies
 
+#### Updating Ruby
+
 To update the used Ruby version:
 
 1. Update `.ruby-version`.
@@ -62,7 +64,8 @@ To update the used Ruby version:
     git clean -xdf
     bundler install
     just build
-    ```
+
+### Updating gems
 
 To update the used Bundler, delete the lockfile and regenerate with
 `bundler install`.
