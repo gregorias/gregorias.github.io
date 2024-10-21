@@ -179,7 +179,7 @@ documented.
 
 So I promised to show you how to get `ls_dir_co` and `match_co`,
 and I’ll do that by adapting `ls_dir_cb` and `match_cb`.
-In fact, you can do so generically:
+In fact, I can do so generically:
 
 ```lua
 --- Converts a callback-based function to a coroutine function.
