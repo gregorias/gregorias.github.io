@@ -233,8 +233,8 @@ With `cb_to`, we can adapt any callback-based function.
 We only need to ensure that the callback becomes the first argument:
 
 ```lua
-ls_dir_co = cb_to_co(function(cb, dir) ls_dir_cb(cb, dir) end)
-match_co = cb_to_co(function(cb, dir, needle) match_cb(cb, dir, needle) end)
+ls_dir_co = cb_to_co(function(cb, dir) ls_dir_cb(dir, cb) end)
+match_co = cb_to_co(function(cb, dir, needle) match_cb(dir, needle, cb) end)
 ```
 
 In my codebases, I wrap existing callback-based APIs into such coroutine
