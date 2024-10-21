@@ -117,7 +117,7 @@ function grep_dir_co(dir, needle)
 end
 ```
 
-This looks exactly like the synchronous version, but is nonblocking, which is
+This looks exactly like the synchronous version but is nonblocking, which is
 a big win.
 
 Lua’s coroutines are transparent.
