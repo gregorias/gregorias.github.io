@@ -124,7 +124,7 @@ Lua’s coroutines are transparent.
 All functions can be coroutine functions with no special syntax required.
 They are also “contagious.”
 Using a coroutine function inside a function makes the function into a
-coroutine functions, so it’s good to document that.
+coroutine function, so it’s good to document that.
 It’s a good practice to indicate that a function may yield by, for example,
 adding a `_co` suffix.
 
