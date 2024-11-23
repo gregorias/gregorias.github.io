@@ -134,7 +134,8 @@ They are also “contagious.”
 Using a coroutine function inside a function makes the function into a
 coroutine function, so it’s good to document that.
 It’s a good practice to indicate that a function may yield by, for example,
-adding a `_co` suffix.
+adding a `_co` suffix or
+[using the `@async` LuaLS annotation](https://luals.github.io/wiki/annotations/#async).
 
 We can use the coroutine functions _almost_ like a regular function by wrapping
 it with a thread:
