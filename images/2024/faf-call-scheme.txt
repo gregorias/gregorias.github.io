@@ -1,0 +1,21 @@
+source: sequencediagram.org
+title fire-and-forget call scheme
+participant Main Thread
+
+activate Main Thread
+Main Thread->FaF Coroutine: faf_co()
+activate FaF Coroutine
+FaF Coroutine->I/O: read_cb
+activate I/O
+I/O-->>FaF Coroutine: yield
+FaF Coroutine->>Main Thread: yield
+deactivate FaF Coroutine
+
+I/O->FaF Coroutine: cb() (coroutine.resume)
+activate FaF Coroutine
+deactivate Main Thread
+
+FaF Coroutine->>I/O: return
+deactivate FaF Coroutine
+deactivate I/O
+activate Main Thread

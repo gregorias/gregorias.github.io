@@ -162,42 +162,52 @@ the coroutine till it finishes. This brings us to the topic of
 ### Fire-and-forget coroutine functions
 
 [Lua introduces coroutines](https://www.lua.org/pil/9.html) as functions that
-can yield (return) and resume multiple times.
-You can use Lua coroutines like Python generators,
+can yield and be resumed.
+Lua leaves it up to the programmer what the call protocol should be.
+For example,
+[you can use Lua coroutines to implement a generator](https://www.lua.org/pil/9.3.html),
 but that’s not how we’ll be using coroutines most of the time, because
 our concern here is to use asynchronicity to deal with blocking I/O calls.
 
 In our context, calls like `ls_co` and `match_co` yield until the
 corresponding I/O call is ready.
-The **Neovim’s event loop** will _resume_ the corresponding thread when that is
-the case. This pattern of control flow is so common for I/O operations that I
-call such coroutines **fire-and-forget coroutine functions**.
-You only resume such coroutines once from your Lua code,
-and the event loop will resume them till the end.
+**Neovim’s event loop** will _resume_ the corresponding thread when that is the
+case.
+This pattern of control flow is so common for I/O operations that I call such
+coroutines **fire-and-forget coroutine functions**. You only resume such
+coroutines once from your Lua code, and the event loop will resume them till
+the end.
+
+![A sequence diagram of a fire-and-forget protocol.](images/2024/faf call scheme.svg)
+
+We can effectively launch fire-and-forget coroutine functions with the
+following utility:
 
 ```lua
+--@param co async fun A fire-and-forget coroutine function
 function fire_and_forget(co)
   coroutine.resume(coroutine.create(co))
 end
 ```
 
-**fire-and-forget coroutine functions** are also contagious and should be
-documented.
+**fire-and-forget coroutine functions** are composable: calling two
+fire-and-forget coroutine functions one after another results in a
+fire-and-forget coroutine function.
 
 ## Callback–coroutine conversion
 
-So I promised to show you how to get `ls_co` and `match_co`,
+I promised to show you how to get `ls_co` and `match_co`,
 and I’ll do that by adapting `ls_cb` and `match_cb`.
 In fact, I can do so generically:
 
 ```lua
 --- Converts a callback-based function to a coroutine function.
 ---
----@tparam function f The function to convert. The callback needs to be its
----                   first argument.
----@treturn function A coroutine function. Accepts the same arguments as f
----                  without the callback. Returns what f has passed to the
----                  callback.
+---@param f function The function to convert.
+---                  The callback needs to be its first argument.
+---@return function A fire-and-forget coroutine function.
+---                 Accepts the same arguments as f without the callback.
+---                 Returns what f has passed to the callback.
 M.cb_to_co = function(f)
   local f_co = function(...)
     local this = coroutine.running()
@@ -213,14 +223,8 @@ M.cb_to_co = function(f)
       if coroutine.status(this) == "suspended" then
         -- If we are suspended, then f_co has yielded control after calling f.
         -- Use the caller of this callback to resume computation until the next yield.
-        local cb_ret = table.pack(coroutine.resume(this))
-        if not cb_ret[1] then
-          error(cb_ret[2])
-        end
-        return cb_ret[]
+        coroutine.resume(this)
       end
-      -- If we are here, then the coroutine is still running, so `f` must have
-      -- worked synchronously. There’s nothing for us to resume.
     end, ...)
     if f_status == "running" then
       -- If we are here, then `f` must not have called the callback yet, so it
