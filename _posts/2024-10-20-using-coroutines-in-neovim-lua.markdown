@@ -121,6 +121,7 @@ function grep_dir_co(dir, needle)
       return file
     end
   end
+  return nil
 end
 ```
 
