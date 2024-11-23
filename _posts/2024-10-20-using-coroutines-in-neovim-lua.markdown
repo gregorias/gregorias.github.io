@@ -16,42 +16,43 @@ more readable.
 
 ## Motivation
 
-.
 [Neovim has adopted Lua as its de-facto config and plugin language](https://neovim.io/doc/user/lua.html#Lua)
 and it comes with a standard library that is callback-based (e.g., [uv.fs_open](https://neovim.io/doc/user/luvref.html#uv.fs_open())).
 This is unfortunate, because callbacks lead to significantly poorer readability.
 Even if you avoid [the immediate problem of deeply-nested callback hells](https://web.archive.org/web/20240723133820/http://callbackhell.com/),
-some constructs still end up way more complex.
+some constructs still end up way more complex than ideal.
 
 Consider the use-case of grepping files in a directory.
 We first get a directory listing, and then grep through each file. In a
 synchronous setup, it’s a simple for-loop:
 
 ```lua
--- `ls_dir_sync` and `match_sync` are simplified API for listing a directory
--- and finding a match in a file. For example, `ls_dir_sync` could implemented
--- with `vim.uv.fs_scandir`.
+-- `ls_sync` and `match_sync` are simplified API for listing a directory and
+-- finding a match in a file. For example, `ls_sync` could implemented with
+-- `vim.uv.fs_scandir`.
 
 function grep_dir_sync(dir, needle, cb) do
-  for file in ls_dir_sync(dir) do
+  for file in ls_sync(dir) do
     if match_sync(file, needle) then
       return file
     end
   end
+  return nil
 end
 ```
 
-This is readable, but has the potential drawback of blocking the editor.
+This is readable but has the potential drawback of blocking the editor.
 [A popular path completion plugin, cmp-path, suffers from this.](https://github.com/hrsh7th/cmp-path/pull/67)
 When we address this flaw with callbacks, our code becomes egregious:
 
 ```lua
--- `ls_dir_cb` and `match_cb` use callbacks.
+-- `ls_cb` and `match_cb` use callbacks.
 
 function grep_dir_cb(dir, needle, cb)
-  ls_dir_cb(dir, function(entries)
+  ls_cb(dir, function(entries)
     if is_empty(entries) then
       cb(nil)
+      return
     end
 
     local file = table.remove(entries, 1)
@@ -59,15 +60,17 @@ function grep_dir_cb(dir, needle, cb)
       grep_file_cb(match, file, entries, needle, cb)
     end)
   end)
-d
+end)
 
 function grep_file_cb(match, file, entries, needle, cb)
   if match then
     cb(file)
+    return
   end
 
   if is_empty(entries) then
     cb(nil)
+    return
   end
 
   file = table.remove(entries, 1)
@@ -105,7 +108,7 @@ This distinction is important. For example:
 - `coroutine.yield` can only happen within a **thread**.
 
 Let’s now assume that we have coroutine versions of the filesystem API,
-`ls_dir_co` and `match_co` ([I’ll show how to construct them shortly](#callbackcoroutine-conversion)).
+`ls_co` and `match_co` ([I’ll show how to construct them shortly](#callbackcoroutine-conversion)).
 `grep_dir_co` looks as follows:
 
 ```lua
@@ -113,7 +116,7 @@ Let’s now assume that we have coroutine versions of the filesystem API,
 ---
 --- This is a fire-and-forget coroutine function.
 function grep_dir_co(dir, needle)
-  for file in ls_dir_co(dir) do
+  for file in ls_co(dir) do
     if match_co(file) then
       return file
     end
@@ -162,7 +165,7 @@ You can use Lua coroutines like Python generators,
 but that’s not how we’ll be using coroutines most of the time, because
 our concern here is to use asynchronicity to deal with blocking I/O calls.
 
-In our context, calls like `ls_dir_co` and `match_co` yield until the
+In our context, calls like `ls_co` and `match_co` yield until the
 corresponding I/O call is ready.
 The **Neovim’s event loop** will _resume_ the corresponding thread when that is
 the case. This pattern of control flow is so common for I/O operations that I
@@ -181,8 +184,8 @@ documented.
 
 ## Callback–coroutine conversion
 
-So I promised to show you how to get `ls_dir_co` and `match_co`,
-and I’ll do that by adapting `ls_dir_cb` and `match_cb`.
+So I promised to show you how to get `ls_co` and `match_co`,
+and I’ll do that by adapting `ls_cb` and `match_cb`.
 In fact, I can do so generically:
 
 ```lua
@@ -237,7 +240,7 @@ With `cb_to`, we can adapt any callback-based function.
 We only need to ensure that the callback becomes the first argument:
 
 ```lua
-ls_dir_co = cb_to_co(function(cb, dir) ls_dir_cb(dir, cb) end)
+ls_co = cb_to_co(function(cb, dir) ls_cb(dir, cb) end)
 match_co = cb_to_co(function(cb, dir, needle) match_cb(dir, needle, cb) end)
 ```
 
