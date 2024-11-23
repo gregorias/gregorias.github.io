@@ -4,11 +4,15 @@ title:  "Using coroutines in Neovim Lua"
 date:   2024-10-20 11:00:00
 tags: coroutine lua neovim
 ---
-In this blog post I describe the use of Lua coroutines in the context of Lua
-programming for Neovim and provide converters for callback-based code for easy
-interaction with existing, non-coroutine codebases.
-The big pay-off of using coroutines is making your asynchronous code
-significantly more readable at little cost once you understand them.
+In this blog post:
+
+- I describe the use of Lua coroutines in the context of Lua programming for
+  Neovim.
+- I provide generic converters from callback-based code for easy interaction
+  with existing, non-coroutine codebases.
+
+The big pay-off of using coroutines is making asynchronous code significantly
+more readable.
 
 ## Motivation
 
