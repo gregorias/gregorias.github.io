@@ -16,9 +16,9 @@ more readable.
 
 ## Motivation
 
-[Neovim has adopted Lua as its de-facto config and plugin language.](https://neovim.io/doc/user/lua.html#Lua)
-Neovim provides a standard library that is, unfortunately, callback-based
-(e.g., [uv.fsopen](https://neovim.io/doc/user/luvref.html#uv.fs_open())).
+.
+[Neovim has adopted Lua as its de-facto config and plugin language](https://neovim.io/doc/user/lua.html#Lua)
+and it comes with a standard library that is callback-based (e.g., [uv.fs_open](https://neovim.io/doc/user/luvref.html#uv.fs_open())).
 This is unfortunate, because callbacks lead to significantly poorer readability.
 Even if you avoid [the immediate problem of deeply-nested callback hells](https://web.archive.org/web/20240723133820/http://callbackhell.com/),
 some constructs still end up way more complex.
