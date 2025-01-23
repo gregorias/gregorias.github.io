@@ -222,7 +222,7 @@ Also, I heartily recommend using Bayesian methods in your experiments, quite oft
 
 [Brooks]: https://www.optimizely.com/case-studies/brooks-running/
 
-[Obama]: https://blog.optimizely.com/2010/11/29/how-obama-raised-60-million-by-running-a-simple-experiment/
+[Obama]: https://web.archive.org/web/20240820011136/https://www.optimizely.com/insights/blog/how-obama-raised-60-million-by-running-a-simple-experiment/
 
 <!-- The ASA’s Statement on p-Values: Context, Process, and Purpose -->
 [ASA]: https://archive.ph/aP8fP
