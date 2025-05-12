@@ -151,3 +151,9 @@ We need to work with manipulators for simultaneous key presses, and we need to
 define them for every combination that we might encounter.
 We also need to work with delayed actions to cover the case when a non-home row
 key gets pressed while a home row key is held.
+
+## Limitations
+
+One limitation is that you can’t dynamically remove modifiers.
+For example, if you hold “as” for Ctrl-Command and release “s,”
+then you just lost both modifiers, not just Command.
