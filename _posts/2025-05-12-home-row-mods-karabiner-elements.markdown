@@ -8,8 +8,9 @@ tags: keyboard
 This note shows how I’ve configured
 [home row mods (HRM)](https://precondition.github.io/home-row-mods) with
 [Karabiner-Elements (KE)](https://karabiner-elements.pqrs.org/).
-I developed this configuration to address shortcomings solutions I’ve found
-on Internet, e.g., this configuration never loses key presses.
+I developed this configuration to address shortcomings in solutions I’ve found
+on Internet, e.g., lost key presses or inability to press multiple modifiers
+simultaneously.
 It turns out, it is suprisingly non-trivial to implement such a popular mod
 as HRM.
 
