@@ -26,11 +26,11 @@ The blog is hosted on GitHub Pages at
 
 1. Install project dependencies:
 
-    ```bash
-    rbenv install
-    gem install bundler
-    bundler install
-    ```
+   ```bash
+   rbenv install
+   gem install bundler
+   bundler install
+   ```
 
 ### Testing
 
@@ -57,13 +57,15 @@ jekyll build
 To update the used Ruby version:
 
 1. Update `.ruby-version`.
+   1. (Optional) Install the new version on your system with `rbenv install x.y.z`.
 2. Update `.github/workflows/jekyll-build-and-deploy.yml`.
 3. Clean currently generated files and regenerate them:
 
-    ```bash
-    git clean -xdf
-    bundler install
-    just build
+   ```bash
+   git clean -xdf
+   bundler install
+   just build
+   ```
 
 ### Updating gems
 
