@@ -57,7 +57,8 @@ jekyll build
 To update the used Ruby version:
 
 1. Update `.ruby-version`.
-   1. (Optional) Install the new version on your system with `rbenv install x.y.z`.
+   1. (Optional) Install the new version on your system with `rbenv install
+      x.y.z`.
 2. Update `.github/workflows/jekyll-build-and-deploy.yml`.
 3. Clean currently generated files and regenerate them:
 
@@ -69,5 +70,5 @@ To update the used Ruby version:
 
 ### Updating gems
 
-To update the used Bundler, delete the lockfile and regenerate with
-`bundler install`.
+To update the used Bundler, delete the lockfile and regenerate with `bundler
+install`.
