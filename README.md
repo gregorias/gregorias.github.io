@@ -71,4 +71,9 @@ To update the used Ruby version:
 ### Updating gems
 
 To update the used Bundler, delete the lockfile and regenerate with `bundler
-install`.
+install` and
+
+```bash
+# Necessary to build on GitHub’s Linux.
+bundle lock --add-platform x86_64-linux
+```
