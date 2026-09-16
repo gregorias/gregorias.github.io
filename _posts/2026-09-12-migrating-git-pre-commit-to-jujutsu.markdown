@@ -2,6 +2,7 @@
 layout: post
 title: "Migrating Git pre-commit to Jujutsu"
 date: 2026-09-12 02:00:00
+last_modified_at: 2026-09-16 08:51:00
 tags: git jujutsu
 ---
 
@@ -13,8 +14,8 @@ Jujutsu.
 I used to use Git’s pre-commit hook (powered by [Lefthook][lefthook]) to run
 linters, formatters, and tests as a form of guarantee that each commit passes
 rudimentary sanity checks.
-The hook wasn’t foolproof.
-Rebases could, in effect, modify a commit without running the pre-commit hook.
+The hook wasn’t foolproof:
+rebases could, in effect, modify a commit without running the pre-commit hook.
 Nevertheless, the hook served as a foundation of my CI workflow.
 
 Since I switched to Jujutsu, I can no longer use the hook, because Jujutsu
@@ -34,15 +35,16 @@ Jujutsu works so well.
 
 My Jujutsu CI workflow now consists of two components:
 
-1. Set up change-level checks through VCS-agnostic scripts.
+1. Set up change-level checks through VCS-agnostic scripts (powered by Just and
+   Lefthook).
 2. Set up JJ aliases for checking to-be-submitted changes during push events.
 
-### Decouple checks from VCS (`just check`)
+### Decouple checks from VCS (`just check-*` and `lefthook run check`)
 
 It’s a good idea to have a local command for running checks that you can run
 independently from your VCS.
-I like [Just][just] for this purpose (it provides completion and easy grouping
-of commands).
+For this purpose, I like [Just][just] (it provides completion and easy grouping
+of commands) and [Lefthook][lefthook] (it provides colorful pretty printing).
 In addition to defining a command for each check, I set up a catch-all `check`
 command for running all change-level checks.
 
@@ -61,7 +63,8 @@ pre-commit:
 became:
 
 ```just
-check: check-fish check-markdown lint-lua test
+check:
+    @lefthook run check
 
 # Check Fish files formatting
 check-fish:
@@ -69,6 +72,22 @@ check-fish:
 # Format Fish files
 format-fish:
     fd -e fish -X fish_indent -w
+```
+
+While my Lefthook config looks like so:
+
+```yaml
+check:
+  parallel: true
+  commands:
+    check-fish:
+      tags: style
+      glob: "*.fish"
+      run: just check-fish
+    validate-json:
+      tags: lint
+      glob: "*.json"
+      run: just validate-json
 ```
 
 We lose the convenience of running the test on just changed files, but either
@@ -97,12 +116,7 @@ Overall, this setup provides a reasonable guarantee that I do not ship broken
 changes.
 
 You can also wrap these aliases into a script and track them inside the repo to
-make sure that when you change them, fixes are transferred across repos:
-
-```shell
-jj config set --repo 'aliases.check' '["util", "exec", "--", "sh", "-c", "\"$JJ_WORKSPACE_ROOT/scripts/check.sh\" \"$@\"", "check"]'
-jj config set --repo 'aliases.ship' '["util", "exec", "--", "sh", "-c", "\"$JJ_WORKSPACE_ROOT/scripts/ship.sh\" \"$@\"", "ship"]'
- ```
+make sure that when you change them, fixes are transferred across repos.
 
 ## Alternatives considered
 
@@ -137,18 +151,15 @@ while read local_ref local_oid remote_ref remote_oid; do
   echo "Verifying every commit in $range…"
 
   for commit in $(git rev-list "$range" --reverse); do
-    git checkout $commit
     just check || exit 1
   done
-  git checkout $local_oid
 done
 ```
 
 This would have avoided having to create another JJ subcommand and having to
 remember to call it.
 Unfortunately, `jj git push` ignores Git hooks.
-We shouldn’t just call `git push` by itself, because it is a mutating Git
-command, and we shouldn’t call those in a colocated repo.
+We shouldn’t just call `git push` by itself, because it won’t work correctly.
 
 ### Using Jujutsu fix
 
