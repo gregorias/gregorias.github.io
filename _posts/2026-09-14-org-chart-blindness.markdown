@@ -8,12 +8,12 @@ tags: management
 **Org-chart blindness** is the propensity of managers to overemphasize an org
 structure’s role in solving problems while largely ignoring other aspects.
 
-A repeated pattern at work were managers that have managed to grow their report
-list who then ended up not liking “silos,” areas of individual specialization:
-some SWEs worked mostly in system A, others in system B and were reluctant to
-switch.
-To address their need, the managers tended to institute some kind of a
-reorganization.
+A repeated pattern at work was that managers, who have managed to grow their
+report list, ended up not liking “silos” — areas of individual specialization.
+Some SWEs worked mostly in system A, others in system B, both groups were
+reluctant to switch.
+To address the need to break “silos,” the managers tended to institute some kind
+of a reorganization.
 
 In one instance, a manager wanted engineer-to-system allocation to be more
 flexible.
